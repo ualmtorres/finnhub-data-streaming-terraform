@@ -84,12 +84,32 @@ resource "openstack_networking_secgroup_rule_v2" "kafka" {
   security_group_id = openstack_networking_secgroup_v2.tradedataprocessing.id
 }
 
-resource "openstack_networking_secgroup_rule_v2" "spark" {
-  description       = "spark"
+resource "openstack_networking_secgroup_rule_v2" "sparkmaster" {
+  description       = "sparkmaster"
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "tcp"
   port_range_max    = 7077
   port_range_min    = 7077
+  security_group_id = openstack_networking_secgroup_v2.tradedataprocessing.id
+}
+
+resource "openstack_networking_secgroup_rule_v2" "sparkhistoryserver" {
+  description       = "sparkhistoryserver"
+  direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  port_range_max    = 18080
+  port_range_min    = 18080
+  security_group_id = openstack_networking_secgroup_v2.tradedataprocessing.id
+}
+
+resource "openstack_networking_secgroup_rule_v2" "hadoopjobhistory" {
+  description       = "hadoopjobhistory"
+  direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  port_range_max    = 19888
+  port_range_min    = 19888
   security_group_id = openstack_networking_secgroup_v2.tradedataprocessing.id
 }
