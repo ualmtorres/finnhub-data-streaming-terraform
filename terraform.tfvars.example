@@ -1,0 +1,13 @@
+openstack_user_name   = "********"
+openstack_tenant_name = "********"
+openstack_auth_url    = "********"
+openstack_keypair     = "********"
+cidr                  = "********"
+
+image_name        = "********"
+availability_zone = "********"
+flavor_name       = "********"
+network_name      = "********"
+floating_ip       = "********"
+
+openstack_private_key_file = "********"
